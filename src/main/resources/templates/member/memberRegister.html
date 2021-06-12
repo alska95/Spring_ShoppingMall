@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>회원 등록</p>
+<form action="/members/new" method="post">
+    <label>회원가입</label>
+    <div>
+        <input type="text" placeholder="이름을 입력하시오" name = "name">
+    </div>
+    <div>
+        <input type="text" placeholder="도시를 입력하시오" name = "city">
+    </div>
+    <div>
+        <input type="text" placeholder="우편번호를 입력하시오" name = "zipcode">
+    </div>
+    <div>
+        <input type="text" placeholder="도로명을 입력하시오" name = "street">
+    </div>
+    <button type="submit">등록!</button>
+</form>
+</body>
+</html>

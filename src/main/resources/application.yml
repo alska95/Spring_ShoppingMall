@@ -1,0 +1,21 @@
+spring: #띄어쓰기 없음
+  datasource: #띄어쓰기 2칸
+    url: jdbc:mysql://localhost:3306/shoppingmall?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC #4칸
+    username: root
+    password: ghkdrudgk95
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa: #띄어쓰기 2칸
+    hibernate: #띄어쓰기 4칸
+      ddl-auto: create #띄어쓰기 6칸
+    properties: #띄어쓰기 4칸
+      hibernate: #띄어쓰기 6칸
+        show_sql: true #띄어쓰기 8칸
+        format_sql: true #띄어쓰기 8칸
+  devtools:
+    livereload:
+      enabled: true
+  freemarker:
+    cache: false
+logging.level: #띄어쓰기 없음
+  org.hibernate.SQL: debug #띄어쓰기 2칸
+  org.hibernate.type: trace #띄어쓰기 2칸
