@@ -23,6 +23,8 @@ public class Order {
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "member_id") //foreign key를 가지고있는 쪽을 연관관계 주인으로 설정하는것이 좋다.
     private Member member;
+    //프록시 기술 사용을 위해 byteBuddyInterceptor객체가 들어가 있다.
+    //Order 입장에선 얘를 어떻게 할 수가 없다.
 
 
     @OneToMany(mappedBy = "order" , cascade = CascadeType.ALL)//이렇게 하면 order만 persist하면 orderitems전부 들어온다.
