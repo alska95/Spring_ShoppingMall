@@ -19,6 +19,12 @@ public class MemberService {
         this.memberRepository = memberRepository;
     }
 
+    @Transactional
+    public void update(Long id, String name){
+        Member byId = memberRepository.findById(id);
+        byId.setName(name);
+
+    }
     //회원가입
     public Long join(Member member){
         duplicateCheck(member);
