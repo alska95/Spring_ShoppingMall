@@ -48,6 +48,12 @@ public class OrderSimpleApiController {
     }
     //Order 통째로 넘겨서 레이지 로딩 해도 쿼리가 너무 많이 나간다. 매핑할때 전부 쿼리가 나감.
 
+    @GetMapping("/api/v3/simple-orders")
+    public List<SimpleOrderDto> orderV3(){
+        List<Order> orders = orderRepository.findAllWithMemberDelivery(); //fetch를 사용함 --> 다끌고옴.
+        return orders.stream().map(v-> new SimpleOrderDto(v)).collect(Collectors.toList());
+    }
+
     @Data
     private class SimpleOrderDto {
         public SimpleOrderDto(Order order) {
