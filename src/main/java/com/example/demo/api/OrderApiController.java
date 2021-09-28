@@ -41,6 +41,11 @@ public class OrderApiController {
         return orders.stream().map(o -> new OrderDto(o)).collect(Collectors.toList());
     }
 
+    @GetMapping("/api/v3/orders")
+    public List<OrderDto> orderV3(){
+        List<Order> orders = orderRepository.findAllWithItem();
+        return orders.stream().map(o-> new OrderDto(o)).collect(Collectors.toList());
+    }
 
     @Getter //properties error --> 보통 getset문제임
     private class OrderDto {

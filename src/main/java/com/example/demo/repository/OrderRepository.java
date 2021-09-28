@@ -39,6 +39,18 @@ public class OrderRepository {
         ).getResultList();
     }
 
+    public List<Order> findAllWithItem() {
+        return em.createQuery(
+                "select distinct o from Order o " +
+                        "join fetch o.member m " +
+                        "join fetch o.delivery d " +
+                        "join fetch o.orderItems oi " +
+                        "join fetch oi.item i", Order.class).getResultList();
+
+    }
+    //쿼리 수십개 나가던게 단 하나로 해결!
+    //걍조인을 하면 result가가 개수가 많은쪽 만큼 생성된다. --> 중복 데이터가 생성됨. distinct를 붙여서 해결하자!
+    //distinct의 두가지 기능 1. 쿼리에 distinct 붙여준다(효과는 없음) 2. 중복 데이터를 걸러준다.
 
 
 //    public List<Order> findAllByString(OrderSearch orderSearch) {
